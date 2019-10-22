@@ -35,12 +35,23 @@ public class Player : MonoBehaviour
     private void Update()
     {
         GetPlayerInputs();
-
+        CalculateVelocity();
+        if (jumpRequest)
+            Jump();
 
 
         transform.Rotate(Vector3.up * mouseHorizontal);
         cam.Rotate(Vector3.right * -mouseVertical);
         transform.Translate(velocity, Space.World);
+    }
+
+    private void Jump()
+    {
+
+        verticalMomentum = jumpForce;
+        isGrounded = false;
+        jumpRequest = false;
+
     }
 
     private void CalculateVelocity()
@@ -57,6 +68,17 @@ public class Player : MonoBehaviour
 
         // Apply vertical momentum (falling/jumping)
         velocity += Vector3.up * verticalMomentum * Time.fixedDeltaTime;
+
+        if ((velocity.z > 0 && front) || (velocity.z < 0 && back))
+            velocity.z = 0;
+        if ((velocity.x > 0 && right) || (velocity.x < 0 && left))
+            velocity.x = 0;
+
+        if (velocity.y < 0)
+            velocity.y = checkDownSpeed(velocity.y);
+        else if (velocity.y > 0)
+            velocity.y = checkUpSpeed(velocity.y);
+
     }
 
     private void GetPlayerInputs()
