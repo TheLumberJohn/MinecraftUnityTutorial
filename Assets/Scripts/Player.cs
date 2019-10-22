@@ -32,9 +32,8 @@ public class Player : MonoBehaviour
         world = GameObject.Find("World").GetComponent<World>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        GetPlayerInputs();
         CalculateVelocity();
         if (jumpRequest)
             Jump();
@@ -43,6 +42,11 @@ public class Player : MonoBehaviour
         transform.Rotate(Vector3.up * mouseHorizontal);
         cam.Rotate(Vector3.right * -mouseVertical);
         transform.Translate(velocity, Space.World);
+    }
+
+    private void Update()
+    {
+        GetPlayerInputs();
     }
 
     private void Jump()
@@ -83,16 +87,16 @@ public class Player : MonoBehaviour
 
     private void GetPlayerInputs()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-        mouseHorizontal = Input.GetAxis("Mouse X");
-        mouseVertical = Input.GetAxis("Mouse Y");
+        horizontal = Input.GetAxis(Axis.HORIZONTAL);
+        vertical = Input.GetAxis(Axis.VERTICAL);
+        mouseHorizontal = Input.GetAxis(MouseAxis.MOUSE_X);
+        mouseVertical = Input.GetAxis(MouseAxis.MOUSE_Y);
 
-        if (Input.GetButtonDown("Sprint"))
+        if (Input.GetButtonDown(MovementKeysMore.SPRINT))
             isSprinting = true;
-        if (Input.GetButtonUp("Sprint"))
+        if (Input.GetButtonUp(MovementKeysMore.SPRINT))
             isSprinting = false;
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if (isGrounded && Input.GetButtonDown(MovementKeysMore.JUMP))
             jumpRequest = true;
     }
 
