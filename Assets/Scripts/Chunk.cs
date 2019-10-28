@@ -96,6 +96,7 @@ public class Chunk
         vertexIndex = 0;
         vertices.Clear();
         triangles.Clear();
+        transparentTriangles.Clear();
         uvs.Clear();
     }
 
@@ -208,6 +209,14 @@ public class Chunk
                     triangles.Add(vertexIndex + 2);
                     triangles.Add(vertexIndex + 1);
                     triangles.Add(vertexIndex + 3); 
+                } else
+                {
+                    transparentTriangles.Add(vertexIndex);
+                    transparentTriangles.Add(vertexIndex + 1);
+                    transparentTriangles.Add(vertexIndex + 2);
+                    transparentTriangles.Add(vertexIndex + 2);
+                    transparentTriangles.Add(vertexIndex + 1);
+                    transparentTriangles.Add(vertexIndex + 3);
                 }
 
 
