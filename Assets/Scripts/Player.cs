@@ -44,20 +44,32 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CalculateVelocity();
-        if (jumpRequest)
-            Jump();
 
 
-        transform.Rotate(Vector3.up * mouseHorizontal);
-        cam.Rotate(Vector3.right * -mouseVertical);
-        transform.Translate(velocity, Space.World);
+        if (!world.inUI)
+        {
+            CalculateVelocity();
+            if (jumpRequest)
+                Jump();
+
+            transform.Rotate(Vector3.up * mouseHorizontal);
+            cam.Rotate(Vector3.right * -mouseVertical);
+            transform.Translate(velocity, Space.World); 
+        }
     }
 
     private void Update()
     {
-        GetPlayerInputs();
-        placeCursorBlocks();
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            world.inUI = !world.inUI;
+        }
+
+        if (!world.inUI)
+        {
+            GetPlayerInputs();
+            placeCursorBlocks();
+        }
     }
 
     private void Jump()

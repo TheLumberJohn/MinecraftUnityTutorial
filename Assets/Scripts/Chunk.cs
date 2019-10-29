@@ -169,14 +169,16 @@ public class Chunk
         int yCheck = Mathf.FloorToInt(pos.y);
         int zCheck = Mathf.FloorToInt(pos.z);
 
-        xCheck -= Mathf.FloorToInt(chunkObject.transform.position.x);
-        zCheck -= Mathf.FloorToInt(chunkObject.transform.position.z);
+        //xCheck -= Mathf.FloorToInt(chunkObject.transform.position.x);
+        //zCheck -= Mathf.FloorToInt(chunkObject.transform.position.z);
+        xCheck -= Mathf.FloorToInt(position.x);
+        zCheck -= Mathf.FloorToInt(position.z);
 
         voxelMap[xCheck, yCheck, zCheck] = newID;
 
         UpdateSurroundingVoxels(xCheck, yCheck, zCheck);
 
-        UpdateChunk();
+        _updateChunk();
     }
 
     void UpdateSurroundingVoxels(int x, int y, int z)
