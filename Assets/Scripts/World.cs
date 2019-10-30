@@ -33,6 +33,9 @@ public class World : MonoBehaviour
 
     public GameObject debugScreen;
 
+    public GameObject creativeInventoryWindow;
+    public GameObject cursorSlot;
+
     private void Start()
     {
         Random.InitState(seed);
@@ -234,6 +237,18 @@ public class World : MonoBehaviour
         set
         {
             _inUI = value;
+            if (_inUI)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                creativeInventoryWindow.SetActive(true);
+                cursorSlot.SetActive(true);
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                creativeInventoryWindow.SetActive(false);
+                cursorSlot.SetActive(false);
+            }
         }
     }
 
@@ -325,6 +340,7 @@ public class BlockType
     public bool isSolid;
     public bool isTransparent;
     public Sprite icon;
+    public int defaultStackSize;
 
     [Header("Texture Values")]
     public int backFaceTexture;
