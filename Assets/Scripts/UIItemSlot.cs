@@ -85,6 +85,13 @@ public class ItemSlot
         uiItemSlot.Link(this);
     }
 
+    public ItemSlot(UIItemSlot _uiItemSlot, ItemStack _stack)
+    {
+        stack = _stack;
+        uiItemSlot = _uiItemSlot;
+        uiItemSlot.Link(this);
+    }
+
     public void LinkUISlot(UIItemSlot uiSlot)
     {
         uiItemSlot = uiSlot;
@@ -100,6 +107,27 @@ public class ItemSlot
         stack = null;
         if (uiItemSlot != null)
             uiItemSlot.UpdateSlot();
+    }
+
+    public int Take(int amt)
+    {
+        if (amt > stack.amount)
+        {
+            int _amt = stack.amount;
+            EmptySlot();
+            return _amt;
+        }
+        else if (amt < stack.amount)
+        {
+            stack.amount -= amt;
+            uiItemSlot.UpdateSlot();
+            return amt;
+        }
+        else
+        {
+            EmptySlot();
+            return amt;
+        }
     }
 
     public bool HasItem

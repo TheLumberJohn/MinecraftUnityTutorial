@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     public float checkIncrement = 0.1f;
     public float reach = 8f;
 
-    public byte selectedBlockIndex = 1;
+    public Toolbar toolbar;
 
     private void Start()
     {
@@ -128,9 +128,16 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
                 world.GetChunkFromVector3(highlightBlock.position).EditVoxel(highlightBlock.position, 0);
 
-            // Destroy block
+            // Place block
             if (Input.GetMouseButtonDown(1))
-                world.GetChunkFromVector3(placeBlock.position).EditVoxel(placeBlock.position, selectedBlockIndex);
+            {
+                if (toolbar.slots[toolbar.slotIndex].HasItem)
+                {
+                    world.GetChunkFromVector3(placeBlock.position).EditVoxel(placeBlock.position, toolbar.slots[toolbar.slotIndex].itemSlot.stack.id);
+                    toolbar.slots[toolbar.slotIndex].itemSlot.Take(1);
+                }
+                
+            }
         }
     }
 
@@ -261,3 +268,4 @@ public class Player : MonoBehaviour
     }
 
 }
+

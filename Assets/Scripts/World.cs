@@ -120,7 +120,7 @@ public class World : MonoBehaviour
         {
             Queue<VoxelMod> queue = modifications.Dequeue();
 
-            while (queue.Count > 0)
+            while ( /* queue.Peek() != null && */ queue.Count > 0)
             {
                 VoxelMod v = queue.Dequeue();
 
@@ -381,7 +381,8 @@ public class VoxelMod
         id = _id;
     }
 
-
 }
+
+
 
 
