@@ -2180,7 +2180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seed: 745617293
   biome: {fileID: 11400000, guid: b73669a4d47fbfe40a0ca0658b00dca9, type: 2}
-  globalLightLevel: 0
+  enableThreading: 0
+  globalLightLevel: 1
   day: {r: 0, g: 1, b: 0.9806, a: 0}
   night: {r: 0, g: 0.001, b: 0.3018, a: 0}
   player: {fileID: 1535764197}
@@ -2190,7 +2191,8 @@ MonoBehaviour:
   blockTypes:
   - blockName: Air
     isSolid: 0
-    isTransparent: 1
+    renderNeighborFaces: 1
+    transparency: 1
     icon: {fileID: 0}
     defaultStackSize: 0
     backFaceTexture: 0
@@ -2201,7 +2203,8 @@ MonoBehaviour:
     rightFaceTexture: 0
   - blockName: Bedrock
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
+    transparency: 0
     icon: {fileID: 1732497745462793687, guid: 341c8528083ad4841bbd538aa0a4b5e0, type: 3}
     defaultStackSize: 64
     backFaceTexture: 9
@@ -2212,7 +2215,8 @@ MonoBehaviour:
     rightFaceTexture: 9
   - blockName: Stone
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
+    transparency: 0
     icon: {fileID: 1456812944503901478, guid: 341c8528083ad4841bbd538aa0a4b5e0, type: 3}
     defaultStackSize: 64
     backFaceTexture: 0
@@ -2223,7 +2227,8 @@ MonoBehaviour:
     rightFaceTexture: 0
   - blockName: Grass
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
+    transparency: 0
     icon: {fileID: -4064466556441594091, guid: 341c8528083ad4841bbd538aa0a4b5e0, type: 3}
     defaultStackSize: 64
     backFaceTexture: 2
@@ -2234,7 +2239,8 @@ MonoBehaviour:
     rightFaceTexture: 2
   - blockName: Sand
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
+    transparency: 0
     icon: {fileID: 8422400266057342736, guid: 341c8528083ad4841bbd538aa0a4b5e0, type: 3}
     defaultStackSize: 64
     backFaceTexture: 10
@@ -2245,7 +2251,8 @@ MonoBehaviour:
     rightFaceTexture: 10
   - blockName: Dirt
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
+    transparency: 0
     icon: {fileID: -3259639945200120147, guid: 341c8528083ad4841bbd538aa0a4b5e0, type: 3}
     defaultStackSize: 64
     backFaceTexture: 1
@@ -2256,7 +2263,8 @@ MonoBehaviour:
     rightFaceTexture: 1
   - blockName: Wood
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
+    transparency: 0
     icon: {fileID: -1039932325359862343, guid: 341c8528083ad4841bbd538aa0a4b5e0, type: 3}
     defaultStackSize: 64
     backFaceTexture: 5
@@ -2267,7 +2275,8 @@ MonoBehaviour:
     rightFaceTexture: 5
   - blockName: Planks
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
+    transparency: 0
     icon: {fileID: 5938746859207757051, guid: 341c8528083ad4841bbd538aa0a4b5e0, type: 3}
     defaultStackSize: 64
     backFaceTexture: 4
@@ -2278,7 +2287,8 @@ MonoBehaviour:
     rightFaceTexture: 4
   - blockName: Bricks
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
+    transparency: 0
     icon: {fileID: 5354226813603030198, guid: 341c8528083ad4841bbd538aa0a4b5e0, type: 3}
     defaultStackSize: 64
     backFaceTexture: 11
@@ -2289,7 +2299,8 @@ MonoBehaviour:
     rightFaceTexture: 11
   - blockName: Cobblestone
     isSolid: 1
-    isTransparent: 0
+    renderNeighborFaces: 0
+    transparency: 0
     icon: {fileID: 5581362664916931183, guid: 341c8528083ad4841bbd538aa0a4b5e0, type: 3}
     defaultStackSize: 64
     backFaceTexture: 8
@@ -2300,7 +2311,8 @@ MonoBehaviour:
     rightFaceTexture: 8
   - blockName: Glass
     isSolid: 1
-    isTransparent: 1
+    renderNeighborFaces: 1
+    transparency: 1
     icon: {fileID: 2778678527414411416, guid: 341c8528083ad4841bbd538aa0a4b5e0, type: 3}
     defaultStackSize: 64
     backFaceTexture: 3
@@ -2311,7 +2323,8 @@ MonoBehaviour:
     rightFaceTexture: 3
   - blockName: Leaves
     isSolid: 1
-    isTransparent: 1
+    renderNeighborFaces: 1
+    transparency: 0.75
     icon: {fileID: 2778678527414411416, guid: 341c8528083ad4841bbd538aa0a4b5e0, type: 3}
     defaultStackSize: 64
     backFaceTexture: 16
